@@ -41,7 +41,7 @@ struct z180_device {
 	int current_timestamp;
 	int timestamp;
 	struct z180_ringbuffer ringbuffer;
-	spinlock_t cmdwin_lock;
+	raw_spinlock_t cmdwin_lock;
 };
 
 int z180_dump(struct kgsl_device *, int);

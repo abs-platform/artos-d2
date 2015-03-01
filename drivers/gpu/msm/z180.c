@@ -158,7 +158,7 @@ static struct z180_device device_2d0 = {
 		.pwr_log = KGSL_LOG_LEVEL_DEFAULT,
 		.pm_dump_enable = 0,
 	},
-	.cmdwin_lock = __SPIN_LOCK_INITIALIZER(device_2d1.cmdwin_lock),
+	.cmdwin_lock = __RAW_SPIN_LOCK_INITIALIZER(device_2d1.cmdwin_lock),
 };
 
 static struct z180_device device_2d1 = {
@@ -185,7 +185,7 @@ static struct z180_device device_2d1 = {
 		.iomemname = KGSL_2D1_REG_MEMORY,
 		.ftbl = &z180_functable,
 	},
-	.cmdwin_lock = __SPIN_LOCK_INITIALIZER(device_2d1.cmdwin_lock),
+	.cmdwin_lock = __RAW_SPIN_LOCK_INITIALIZER(device_2d1.cmdwin_lock),
 };
 
 static irqreturn_t z180_irq_handler(struct kgsl_device *device)
@@ -766,11 +766,11 @@ static void _z180_regread_mmu(struct kgsl_device *device,
 	struct z180_device *z180_dev = Z180_DEVICE(device);
 	unsigned long flags;
 
-	spin_lock_irqsave(&z180_dev->cmdwin_lock, flags);
+	raw_spin_lock_irqsave(&z180_dev->cmdwin_lock, flags);
 	_z180_regwrite_simple(device, (ADDR_VGC_MH_READ_ADDR >> 2),
 				offsetwords);
 	_z180_regread_simple(device, (ADDR_VGC_MH_DATA_ADDR >> 2), value);
-	spin_unlock_irqrestore(&z180_dev->cmdwin_lock, flags);
+	raw_spin_unlock_irqrestore(&z180_dev->cmdwin_lock, flags);
 }
 
 
@@ -787,11 +787,11 @@ static void _z180_regwrite_mmu(struct kgsl_device *device,
 	cmdwinaddr |= ((offsetwords << Z180_CMDWINDOW_ADDR_SHIFT) &
 			Z180_CMDWINDOW_ADDR_MASK);
 
-	spin_lock_irqsave(&z180_dev->cmdwin_lock, flags);
+	raw_spin_lock_irqsave(&z180_dev->cmdwin_lock, flags);
 	_z180_regwrite_simple(device, ADDR_VGC_MMUCOMMANDSTREAM >> 2,
 			     cmdwinaddr);
 	_z180_regwrite_simple(device, ADDR_VGC_MMUCOMMANDSTREAM >> 2, value);
-	spin_unlock_irqrestore(&z180_dev->cmdwin_lock, flags);
+	raw_spin_unlock_irqrestore(&z180_dev->cmdwin_lock, flags);
 }
 
 /* the rest of the code doesn't want to think about if it is writing mmu
