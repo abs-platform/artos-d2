@@ -1753,6 +1753,7 @@ static int __cpuinit init_timers_cpu(int cpu)
 			base = &boot_tvec_bases;
 		}
 		spin_lock_init(&base->lock);
+		init_waitqueue_head(&base->wait_for_running_timer);
 		tvec_base_done[cpu] = 1;
 	} else {
 		base = per_cpu(tvec_bases, cpu);
