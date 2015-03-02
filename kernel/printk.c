@@ -1095,13 +1095,7 @@ asmlinkage int vprintk(const char *fmt, va_list args)
 	 * actually gets the semaphore or not.
 	 */
 	if (console_trylock_for_printk(this_cpu, flags)) {
-#ifndef CONFIG_PREEMPT_RT_FULL
 		console_unlock();
-#else
-		raw_local_irq_restore(flags);
-		console_unlock();
-		raw_local_irq_save(flags);
-#endif
 	}
 
 	lockdep_on();
