@@ -114,7 +114,7 @@ struct spmi_pmic_arb_dev {
 	void __iomem		*cnfg;
 	int			pic_irq;
 	bool			allow_wakeup;
-	spinlock_t		lock;
+	raw_spinlock_t		lock;
 	u8			owner;
 	u8			channel;
 	u8			min_apid;
@@ -218,10 +218,10 @@ static int pmic_arb_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid)
 
 	cmd = ((opc | 0x40) << 27) | ((sid & 0xf) << 20);
 
-	spin_lock_irqsave(&pmic_arb->lock, flags);
+	raw_spin_lock_irqsave(&pmic_arb->lock, flags);
 	pmic_arb_write(pmic_arb, PMIC_ARB_CMD(pmic_arb->channel), cmd);
 	rc = pmic_arb_wait_for_done(pmic_arb);
-	spin_unlock_irqrestore(&pmic_arb->lock, flags);
+	raw_spin_unlock_irqrestore(&pmic_arb->lock, flags);
 
 	return rc;
 }
@@ -254,7 +254,7 @@ static int pmic_arb_read_cmd(struct spmi_controller *ctrl,
 
 	cmd = (opc << 27) | ((sid & 0xf) << 20) | (addr << 4) | (bc & 0x7);
 
-	spin_lock_irqsave(&pmic_arb->lock, flags);
+	raw_spin_lock_irqsave(&pmic_arb->lock, flags);
 	pmic_arb_write(pmic_arb, PMIC_ARB_CMD(pmic_arb->channel), cmd);
 	rc = pmic_arb_wait_for_done(pmic_arb);
 	if (rc)
@@ -269,7 +269,7 @@ static int pmic_arb_read_cmd(struct spmi_controller *ctrl,
 				PMIC_ARB_RDATA1(pmic_arb->channel), bc - 4);
 
 done:
-	spin_unlock_irqrestore(&pmic_arb->lock, flags);
+	raw_spin_unlock_irqrestore(&pmic_arb->lock, flags);
 	return rc;
 }
 
@@ -304,7 +304,7 @@ static int pmic_arb_write_cmd(struct spmi_controller *ctrl,
 	cmd = (opc << 27) | ((sid & 0xf) << 20) | (addr << 4) | (bc & 0x7);
 
 	/* Write data to FIFOs */
-	spin_lock_irqsave(&pmic_arb->lock, flags);
+	raw_spin_lock_irqsave(&pmic_arb->lock, flags);
 	pa_write_data(pmic_arb, buf, PMIC_ARB_WDATA0(pmic_arb->channel)
 							, min_t(u8, bc, 3));
 	if (bc > 3)
@@ -314,7 +314,7 @@ static int pmic_arb_write_cmd(struct spmi_controller *ctrl,
 	/* Start the transaction */
 	pmic_arb_write(pmic_arb, PMIC_ARB_CMD(pmic_arb->channel), cmd);
 	rc = pmic_arb_wait_for_done(pmic_arb);
-	spin_unlock_irqrestore(&pmic_arb->lock, flags);
+	raw_spin_unlock_irqrestore(&pmic_arb->lock, flags);
 
 	return rc;
 }
@@ -432,14 +432,14 @@ static int pmic_arb_pic_enable(struct spmi_controller *ctrl,
 		return -EINVAL;
 	}
 
-	spin_lock_irqsave(&pmic_arb->lock, flags);
+	raw_spin_lock_irqsave(&pmic_arb->lock, flags);
 	status = readl_relaxed(pmic_arb->intr + SPMI_PIC_ACC_ENABLE(apid));
 	if (!status) {
 		writel_relaxed(0x1, pmic_arb->intr + SPMI_PIC_ACC_ENABLE(apid));
 		/* Interrupt needs to be enabled before returning to caller */
 		wmb();
 	}
-	spin_unlock_irqrestore(&pmic_arb->lock, flags);
+	raw_spin_unlock_irqrestore(&pmic_arb->lock, flags);
 	return 0;
 }
 
@@ -465,14 +465,14 @@ static int pmic_arb_pic_disable(struct spmi_controller *ctrl,
 		return -EINVAL;
 	}
 
-	spin_lock_irqsave(&pmic_arb->lock, flags);
+	raw_spin_lock_irqsave(&pmic_arb->lock, flags);
 	status = readl_relaxed(pmic_arb->intr + SPMI_PIC_ACC_ENABLE(apid));
 	if (status) {
 		writel_relaxed(0x0, pmic_arb->intr + SPMI_PIC_ACC_ENABLE(apid));
 		/* Interrupt needs to be disabled before returning to caller */
 		wmb();
 	}
-	spin_unlock_irqrestore(&pmic_arb->lock, flags);
+	raw_spin_unlock_irqrestore(&pmic_arb->lock, flags);
 	return 0;
 }
 
@@ -511,7 +511,9 @@ periph_interrupt(struct spmi_pmic_arb_dev *pmic_arb, u8 apid)
 				.per = pid,
 				.irq = i,
 			};
+			local_irq_disable_rt();
 			qpnpint_handle_irq(&pmic_arb->controller, &irq_spec);
+			local_irq_enable_rt();
 		}
 	}
 	return IRQ_HANDLED;
@@ -713,7 +715,7 @@ static int __devinit spmi_pmic_arb_probe(struct platform_device *pdev)
 	platform_set_drvdata(pdev, pmic_arb);
 	spmi_set_ctrldata(&pmic_arb->controller, pmic_arb);
 
-	spin_lock_init(&pmic_arb->lock);
+	raw_spin_lock_init(&pmic_arb->lock);
 
 	pmic_arb->controller.nr = cell_index;
 	pmic_arb->controller.dev.parent = pdev->dev.parent;
