@@ -35,7 +35,7 @@ struct msm_pm_cpu_time_stats {
 	struct msm_pm_time_stats stats[MSM_PM_STAT_COUNT];
 };
 
-static DEFINE_SPINLOCK(msm_pm_stats_lock);
+static DEFINE_RAW_SPINLOCK(msm_pm_stats_lock);
 static DEFINE_PER_CPU_SHARED_ALIGNED(
 	struct msm_pm_cpu_time_stats, msm_pm_stats);
 
@@ -49,7 +49,7 @@ void msm_pm_add_stat(enum msm_pm_time_stats_id id, int64_t t)
 	int64_t bt;
 	int i;
 
-	spin_lock_irqsave(&msm_pm_stats_lock, flags);
+	raw_spin_lock_irqsave(&msm_pm_stats_lock, flags);
 	stats = __get_cpu_var(msm_pm_stats).stats;
 
 	if (!stats[id].enabled)
@@ -79,7 +79,7 @@ void msm_pm_add_stat(enum msm_pm_time_stats_id id, int64_t t)
 		stats[id].max_time[i] = t;
 
 add_bail:
-	spin_unlock_irqrestore(&msm_pm_stats_lock, flags);
+	raw_spin_unlock_irqrestore(&msm_pm_stats_lock, flags);
 }
 
 /*
@@ -127,7 +127,7 @@ static int msm_pm_read_proc
 		int64_t s;
 		uint32_t ns;
 
-		spin_lock_irqsave(&msm_pm_stats_lock, flags);
+		raw_spin_lock_irqsave(&msm_pm_stats_lock, flags);
 		stats = per_cpu(msm_pm_stats, cpu).stats;
 
 		/* Skip the disabled ones */
@@ -169,7 +169,7 @@ again:
 		*start = (char *) 1;
 		*eof = (off + 1 >= MSM_PM_STAT_COUNT * num_possible_cpus());
 
-		spin_unlock_irqrestore(&msm_pm_stats_lock, flags);
+		raw_spin_unlock_irqrestore(&msm_pm_stats_lock, flags);
 	}
 
 	return p - page;
@@ -205,7 +205,7 @@ static int msm_pm_write_proc(struct file *file, const char __user *buffer,
 		goto write_proc_failed;
 	}
 
-	spin_lock_irqsave(&msm_pm_stats_lock, flags);
+	raw_spin_lock_irqsave(&msm_pm_stats_lock, flags);
 	for_each_possible_cpu(cpu) {
 		struct msm_pm_time_stats *stats;
 		int i;
@@ -223,7 +223,7 @@ static int msm_pm_write_proc(struct file *file, const char __user *buffer,
 		}
 	}
 
-	spin_unlock_irqrestore(&msm_pm_stats_lock, flags);
+	raw_spin_unlock_irqrestore(&msm_pm_stats_lock, flags);
 	return count;
 
 write_proc_failed:
