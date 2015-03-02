@@ -380,7 +380,6 @@ static void msm_summary_irq_handler(struct smp2p_chip_dev *chip,
 	uint32_t cur_val;
 	uint32_t prev_val;
 	uint32_t edge;
-	unsigned long flags;
 	bool trigger_interrrupt;
 	bool irq_rising;
 	bool irq_falling;
@@ -395,7 +394,8 @@ static void msm_summary_irq_handler(struct smp2p_chip_dev *chip,
 			chip->name, chip->remote_pid, prev_val, cur_val);
 
 	for (i = 0; i < SMP2P_BITS_PER_ENTRY; ++i) {
-		spin_lock_irqsave(&chip->irq_lock, flags);
+		local_irq_disable_rt();
+		spin_lock(&chip->irq_lock);
 		trigger_interrrupt = false;
 		edge = (prev_val & 0x1) << 1 | (cur_val & 0x1);
 		irq_rising = test_bit(i, chip->irq_rising_edge);
@@ -417,7 +417,7 @@ static void msm_summary_irq_handler(struct smp2p_chip_dev *chip,
 				edge_name_falling[irq_falling],
 				edge_names[edge]);
 		}
-		spin_unlock_irqrestore(&chip->irq_lock, flags);
+		spin_unlock(&chip->irq_lock);
 
 		if (trigger_interrrupt) {
 			SMP2P_GPIO(
@@ -432,6 +432,7 @@ static void msm_summary_irq_handler(struct smp2p_chip_dev *chip,
 
 		cur_val >>= 1;
 		prev_val >>= 1;
+		local_irq_enable_rt();
 	}
 }
 
