@@ -6,30 +6,39 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Bug 010
 </title>
-
     <link rel="stylesheet" href="../stylesheets/styles.css">
-    <link rel="stylesheet" href="../stylesheets/github-light.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="../stylesheets/github-dark.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="../javascripts/respond.js"></script>
     <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="../stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
   </head>
   <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/mark-mb/artos-d2">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/mark-mb/artos-d2/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/mark-mb/artos-d2/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
     <div class="wrapper">
-      <header>
-        <h1>ARTOS-D2</h1>
-        <p>Android Real Time Operating System</p>
 
-        <p class="view"><a href="https://github.com/mark-mb/artos-d2">View the Project on GitHub <small>mark-mb/artos-d2</small></a></p>
-
-
-        <ul>
-          <li><a href="https://github.com/mark-mb/artos-d2/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/mark-mb/artos-d2/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/mark-mb/artos-d2">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section><h2> Log output </h2>
+      <section>
+        <div id="title">
+          <h1>ARTOS-D2</h1>
+          <p>Android Real Time Operating System</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/mark-mb">mark-mb</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div><h2> Log output </h2>
 <pre>[8790] Loading boot image (8986624): start
 [9110] Loading boot image (8986624): done
 [9110] Found Appeneded Flattened Device tree
@@ -2840,12 +2849,9 @@ a IRQ thread (with interrupts enabled), a interrupt handling is requested.
 drivers/gpio/gpio-msm-common.c file.
 
       </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/mark-mb">mark-mb</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
+
     </div>
-    <script src="../javascripts/scale.fix.js"></script>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
     
   </body>
 </html>
