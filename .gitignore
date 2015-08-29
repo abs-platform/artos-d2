@@ -1,0 +1,26 @@
+# Ignore all Linux untracked files
+.*
+arch/
+block/
+crypto/
+Documentation/
+drivers/
+firmware/
+fs/
+include/
+init/
+ipc/
+kernel/
+lib/
+mm/
+net/
+scripts/
+security/
+sound/
+usr/
+
+modules.order
+Module.symvers
+System.map
+vmlinux
+vmlinux.o
