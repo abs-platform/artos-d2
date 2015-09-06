@@ -371,9 +371,12 @@ static irqreturn_t msm_summary_irq_handler(int irq, void *data)
 	for (i = find_first_bit(msm_gpio.enabled_irqs, ngpio);
 	     i < ngpio;
 	     i = find_next_bit(msm_gpio.enabled_irqs, ngpio, i + 1)) {
-		if (__msm_gpio_get_intr_status(i))
+		if (__msm_gpio_get_intr_status(i)) {
+			local_irq_disable_rt();
 			generic_handle_irq(msm_gpio_to_irq(&msm_gpio.gpio_chip,
 							   i));
+			local_irq_enable_rt();
+		}
 	}
 
 	chained_irq_exit(chip, desc);
