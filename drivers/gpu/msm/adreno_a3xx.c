@@ -3464,6 +3464,9 @@ irqreturn_t a3xx_irq_handler(struct adreno_device *adreno_dev)
 	unsigned int status, tmp;
 	int i;
 
+#ifdef CONFIG_PREEMPT_RT_FULL
+	mutex_lock(&device->mutex);
+#endif
 	adreno_readreg(adreno_dev, ADRENO_REG_RBBM_INT_0_STATUS, &status);
 
 	for (tmp = status, i = 0; tmp && i < ARRAY_SIZE(a3xx_irq_funcs); i++) {
@@ -3485,6 +3488,9 @@ irqreturn_t a3xx_irq_handler(struct adreno_device *adreno_dev)
 	if (status)
 		adreno_writereg(adreno_dev, ADRENO_REG_RBBM_INT_CLEAR_CMD,
 				status);
+#ifdef CONFIG_PREEMPT_RT_FULL
+	mutex_unlock(&device->mutex);
+#endif
 	return ret;
 }
 
@@ -3515,7 +3521,13 @@ unsigned int a3xx_irq_pending(struct adreno_device *adreno_dev)
 {
 	unsigned int status;
 
+#ifdef CONFIG_PREEMPT_RT_FULL
+    mutex_lock(&adreno_dev->dev.mutex);
+#endif
 	adreno_readreg(adreno_dev, ADRENO_REG_RBBM_INT_0_STATUS, &status);
+#ifdef CONFIG_PREEMPT_RT_FULL
+    mutex_unlock(&adreno_dev->dev.mutex);
+#endif
 
 	return (status & A3XX_INT_MASK) ? 1 : 0;
 }
