@@ -107,7 +107,7 @@ for filename in os.listdir(input_dir):
             pre = False
             for line in bugfile:
                 # This won't appear in a Linux trace, hopefully
-                if line.find("----------") != -1:
+                if line.find("---------------") != -1:
                     line = line.replace('\n', '')
                     line = line.replace('-', '')
 

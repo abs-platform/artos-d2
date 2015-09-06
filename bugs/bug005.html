@@ -1940,9 +1940,8 @@ Uncompressing Linux... done, booting the kernel.
 [   12.526348] initcall ga_init+0x0/0x28 returned 0 after 32 usecs
 [   12.532209] calling  tm_init+0x0/0x28 @ 1
 [   12.536244] initcall tm_init+0x0/0x28 returned 0 after 32 usecs
-</pre>
-<h2>[   12.542130] [ cut here ]</h2>
-<p>[   12.546716] WARNING: at kernel/irq/handle.c:146 handle_irq_event_percpu+0x2c8/0x2ec()
+[   12.542130] ------------[ cut here ]------------
+[   12.546716] WARNING: at kernel/irq/handle.c:146 handle_irq_event_percpu+0x2c8/0x2ec()
 [   12.554505] irq 305 handler irq_default_primary_handler+0x0/0x1c enabled interrupts
 [   12.562199] [<c010dc4c>] (unwind_backtrace+0x0/0x144) from [<c0a36e44>] (dump_stack+0x20/0x24)
 [   12.570775] [<c0a36e44>] (dump_stack+0x20/0x24) from [<c019328c>] (warn_slowpath_common+0x58/0x70)
@@ -2856,7 +2855,7 @@ Uncompressing Linux... done, booting the kernel.
 [   22.472584] [<c0a32850>] (secondary_start_kernel+0x134/0x160) from [<00a31df4>] (0xa31df4)
 [   24.034948] SMP: failed to stop secondary CPUs
 
-</p>
+</pre>
 <h2> Configuration options </h2>
 <p>EARLY_PRINTK enabled
 PREEMPT_RT_FULL enabled

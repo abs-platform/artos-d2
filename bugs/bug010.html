@@ -2761,9 +2761,8 @@ shell@hammerhead:/ $ [   21.954477] EXT4-fs (mmcblk0p25): re-mounted. Opts: (nul
 [   39.584565] type=1400 audit(1436539334.318:5): avc:  denied  { getattr } for  pid=966 comm="earchbox:search" path="/data/app" dev="mmcblk0p28" ino=162881 scontext=u:r:untrusted_app:s0 tcontext=u:object_r:apk_data_file:s0 tclass=dir
 [   39.808766] dhdsdio_write_vars: Download, Upload and compare of NVRAM succeeded.
 [   39.988035] dhd_bus_init: enable 0x06, ready 0x06 (waited 0us)
-</pre>
-<h2>[   39.996516] [ cut here ]</h2>
-<p>[   40.000342] WARNING: at kernel/irq/handle.c:146 handle_irq_event_percpu+0x2c8/0x2ec()
+[   39.996516] ------------[ cut here ]------------
+[   40.000342] WARNING: at kernel/irq/handle.c:146 handle_irq_event_percpu+0x2c8/0x2ec()
 [   40.008156] irq 289 handler irq_default_primary_handler+0x0/0x1c enabled interrupts
 [   40.015719] [<c010dc4c>] (unwind_backtrace+0x0/0x144) from [<c0a36d44>] (dump_stack+0x20/0x24)
 [   40.024786] [<c0a36d44>] (dump_stack+0x20/0x24) from [<c01932a0>] (warn_slowpath_common+0x58/0x70)
@@ -2832,7 +2831,7 @@ shell@hammerhead:/ $ [   21.954477] EXT4-fs (mmcblk0p25): re-mounted. Opts: (nul
 [   40.977591] type=1400 audit(1436539335.718:6): avc:  denied  { getattr } for  pid=1075 comm=".gms.persistent" path="/data/app" dev="mmcblk0p28" ino=162881 scontext=u:r:untrusted_app:s0 tcontext=u:object_r:apk_data_file:s0 tclass=dir
 [   41.222621] type=1400 audit(1436539335.958:7): avc:  denied  { execute } for  pid=1073 comm="phasebeamorange" path="/dev/kgsl-3d0" dev="tmpfs" ino=6017 scontext=u:r:untrusted_app:s0 tcontext=u:object_r:gpu_device:s0 tclass=chr_file
 
-</p>
+</pre>
 <h2> Configuration options </h2>
 <p>EARLY_PRINTK enabled
 PREEMPT_RT_FULL enabled

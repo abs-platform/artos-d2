@@ -2619,9 +2619,8 @@ Uncompressing Linux... done, booting the kernel.
 [   20.759931] SELinux:  Context u:object_r:persist_sensors_file:s0 is not valid (left unmapped).
 [   20.769081] diag: In diag_send_msg_mask_update, invalid status 0
 [   20.775154] taiko-slim taiko-slim-pgd: Platform data from device tree
-</pre>
-<h2>[   20.781259] [ cut here ]</h2>
-<p>[   20.785804] WARNING: at kernel/irq/handle.c:146 handle_irq_event_percpu+0x2c8/0x2ec()
+[   20.781259] ------------[ cut here ]------------
+[   20.785804] WARNING: at kernel/irq/handle.c:146 handle_irq_event_percpu+0x2c8/0x2ec()
 [   20.793628] irq 493 handler irq_default_primary_handler+0x0/0x1c enabled interrupts
 [   20.801272] [<c010dc4c>] (unwind_backtrace+0x0/0x144) from [<c0a36e04>] (dump_stack+0x20/0x24)
 [   20.809834] [<c0a36e04>] (dump_stack+0x20/0x24) from [<c019328c>] (warn_slowpath_common+0x58/0x70)
@@ -2825,7 +2824,7 @@ ct[   21t.s074092/]x )
 [   22.151229] [<c0a32810>] (secondary_start_kernel+0x134/0x160) from [<00a31db4>] (0xa31db4)
 [   23.713599] SMP: failed to stop secondary CPUs
 
-</p>
+</pre>
 <h2> Configuration options </h2>
 <p>EARLY_PRINTK enabled
 PREEMPT_RT_FULL enabled

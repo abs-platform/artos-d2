@@ -1460,9 +1460,8 @@ Uncompressing Linux... done, booting the kernel.
 [    9.156743] calling  msm_csiphy_init_module+0x0/0x1c @ 1
 [    9.163104] initcall msm_csiphy_init_module+0x0/0x1c returned 0 after 1094 usecs
 [    9.169527] calling  msm_csid_init_module+0x0/0x1c @ 1
-</pre>
-<h2>[    9.174742] [ cut here ]</h2>
-<p>[    9.179253] WARNING: at kernel/irq/handle.c:146 handle_irq_event_percpu+0x2c8/0x2ec()
+[    9.174742] ------------[ cut here ]------------
+[    9.179253] WARNING: at kernel/irq/handle.c:146 handle_irq_event_percpu+0x2c8/0x2ec()
 [    9.187046] irq 362 handler irq_default_primary_handler+0x0/0x1c enabled interrupts
 [    9.194734] [<c010dc4c>] (unwind_backtrace+0x0/0x144) from [<c0a36e04>] (dump_stack+0x20/0x24)
 [    9.203313] [<c0a36e04>] (dump_stack+0x20/0x24) from [<c0193294>] (warn_slowpath_common+0x58/0x70)
@@ -2807,7 +2806,7 @@ Uncompressing Linux... done, booting the kernel.
 [   21.975410] Kernel panic - not syncing: Fatal exception
 [   23.537914] SMP: failed to stop secondary CPUs
 
-</p>
+</pre>
 <h2> Configuration options </h2>
 <p>EARLY_PRINTK enabled
 PREEMPT_RT_FULL enabled

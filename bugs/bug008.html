@@ -2780,9 +2780,8 @@ shell@hammerhead:/ $ [   21.774686] asoc: taiko_rx1 <-> msm-dai-q6-dev.16392 map
 [   22.833154] MSM-CPP cpp_close_node:927 cpp_close_node: DEBUG_R1: 0x0
 [   22.868678] hdmi_tx_get_audio_edid_blk: failed. HDMI is not connected/ready for audio
 [   22.891082] hdmi_tx_get_audio_edid_blk: failed. HDMI is not connected/ready for audio
-</pre>
-<h2>[   22.954326] [ cut here ]</h2>
-<p>[   22.954371] kernel BUG at drivers/gpu/msm/kgsl_pwrctrl.c:1269!
+[   22.954326] ------------[ cut here ]------------
+[   22.954371] kernel BUG at drivers/gpu/msm/kgsl_pwrctrl.c:1269!
 [   22.954388] Internal error: Oops - BUG: 0 [#1] PREEMPT SMP ARM
 [   22.954421] CPU: 0    Not tainted  (3.4.0-rt8-g49c4483 #37)
 [   22.954511] PC is at kgsl_pre_hwaccess+0x30/0x34
@@ -2935,9 +2934,8 @@ shell@hammerhead:/ $ [   21.774686] asoc: taiko_rx1 <-> msm-dai-q6-dev.16392 map
 [   22.956011] [<c01fa16c>] (irq_thread+0x124/0x164) from [<c01b507c>] (kthread+0x98/0xa4)
 [   22.956051] [<c01b507c>] (kthread+0x98/0xa4) from [<c0107c90>] (kernel_thread_exit+0x0/0x8)
 [   22.956071] Code: e5903198 e3130002 189da800 e7f001f2 (e7f001f2) 
-</p>
-<h2>[   24.041552] [ cut here ]</h2>
-<p>[   24.041557] kernel BUG at drivers/gpu/msm/kgsl_pwrctrl.c:1269!
+[   24.041552] ------------[ cut here ]------------
+[   24.041557] kernel BUG at drivers/gpu/msm/kgsl_pwrctrl.c:1269!
 [   24.041560] Internal error: Oops - BUG: 0 [#2] PREEMPT SMP ARM
 [   24.041574] CPU: 1    Tainted: G      D       (3.4.0-rt8-g49c4483 #37)
 [   24.041617] PC is at kgsl_pre_hwaccess+0x30/0x34
@@ -3123,7 +3121,7 @@ d trace 0000000000000003 ]---
 [   25.135047] [<c0a32810>] (secondary_start_kernel+0x134/0x160) from [<00a31db4>] (0xa31db4)
 [   26.697218] SMP: failed to stop secondary CPUs
 
-</p>
+</pre>
 <h2> Configuration options </h2>
 <p>EARLY_PRINTK enabled
 PREEMPT_RT_FULL enabled

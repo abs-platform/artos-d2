@@ -2743,9 +2743,8 @@ shell@hammerhead:/ $ [   22.032674] EXT4-fs (mmcblk0p25): re-mounted. Opts: (nul
 [   28.445312] MSM-CPP cpp_close_node:923 cpp_close_node: DEBUG_R0: 0x0
 [   28.451595] MSM-CPP cpp_close_node:925 cpp_close_node: DEBUG_T1: 0x0
 [   28.457984] MSM-CPP cpp_close_node:927 cpp_close_node: DEBUG_R1: 0x0
-</pre>
-<h2>[   30.865133] [ cut here ]</h2>
-<p>[   30.865141] kernel BUG at kernel/rtmutex.c:725!
+[   30.865133] ------------[ cut here ]------------
+[   30.865141] kernel BUG at kernel/rtmutex.c:725!
 [   30.865146] Internal error: Oops - BUG: 0 [#1] PREEMPT SMP ARM
 [   30.865153] CPU: 1    Not tainted  (3.4.0-rt8-g49c4483-dirty #1)
 [   30.865164] PC is at rt_spin_lock_slowlock+0x2ac/0x2b4
@@ -3035,7 +3034,7 @@ shell@hammerhead:/ $ [   22.032674] EXT4-fs (mmcblk0p25): re-mounted. Opts: (nul
 [   32.480304] [<c027bc28>] (do_vfs_ioctl+0x94/0x5ec) from [<c027c200>] (sys_ioctl+0x80/0x88)
 [   32.480320] [<c027c200>] (sys_ioctl+0x80/0x88) from [<c0107000>] (ret_fast_syscall+0x0/0x30)
 
-</p>
+</pre>
 <h2> Configuration options </h2>
 <p>EARLY_PRINTK enabled
 PREEMPT_RT_FULL enabled

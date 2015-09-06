@@ -2033,9 +2033,8 @@ Uncompressing Linux... done, booting the kernel.
 [   12.037716] initcall tivo_init+0x0/0x28 returned 0 after 19 usecs
 [   12.043761] calling  ts_init+0x0/0x28 @ 1
 [   12.047758] initcall ts_init+0x0/0x28 returned 0 after 21 usecs
-</pre>
-<h2>[   12.053717] [ cut here ]</h2>
-<p>[   12.058241] WARNING: at kernel/irq/handle.c:146 handle_irq_event_percpu+0x2c8/0x2ec()
+[   12.053717] ------------[ cut here ]------------
+[   12.058241] WARNING: at kernel/irq/handle.c:146 handle_irq_event_percpu+0x2c8/0x2ec()
 [   12.066095] irq 305 handler irq_default_primary_handler+0x0/0x1c enabled interrupts
 [   12.073757] [<c010dc4c>] (unwind_backtrace+0x0/0x144) from [<c0a4ef14>] (dump_stack+0x20/0x24)
 [   12.082301] [<c0a4ef14>] (dump_stack+0x20/0x24) from [<c0193bb0>] (warn_slowpath_common+0x58/0x70)
@@ -2934,9 +2933,8 @@ shell@hammerhead:/ $ [   19.910068] asoc: snd-soc-dummy-dai <-> MultiMedia1 mapp
 [   31.145025] [<c0a1fcf0>] (_cpu_down+0x13c/0x428) from [<c0a20084>] (cpu_down+0x38/0x4c)
 [   31.152957] [<c0a20084>] (cpu_down+0x38/0x4c) from [<c0a20b10>] (store_online+0x40/0x88)
 [   31.161090] [<c0a20b10>] (store_online+0x40/0x88) from [<c0501724>] (dev_attr_store+0x28/0x34)
-</p>
-<h2>[   31.161310] [ cut here ]</h2>
-<p>[   31.161330] WARNING: at drivers/video/msm/mdss/mdss_mdp_intf_cmd.c:440 mdss_mdp_cmd_wait4pingpong+0xc4/0x120()
+[   31.161310] ------------[ cut here ]------------
+[   31.161330] WARNING: at drivers/video/msm/mdss/mdss_mdp_intf_cmd.c:440 mdss_mdp_cmd_wait4pingpong+0xc4/0x120()
 [   31.161335] cmd kickoff timed out (0) ctl=0
 [   31.161367] [<c010dc4c>] (unwind_backtrace+0x0/0x144) from [<c0a4ef14>] (dump_stack+0x20/0x24)
 [   31.161385] [<c0a4ef14>] (dump_stack+0x20/0x24) from [<c0193bb0>] (warn_slowpath_common+0x58/0x70)
@@ -3402,9 +3400,8 @@ shell@hammerhead:/ $ [   19.910068] asoc: snd-soc-dummy-dai <-> MultiMedia1 mapp
 [   35.240686] [<c02d30c4>] (sysfs_write_file+0x10c/0x18c) from [<c026ed74>] (vfs_write+0xb8/0x148)
 [   35.249409] [<c026ed74>] (vfs_write+0xb8/0x148) from [<c026eec8>] (sys_write+0x4c/0x78)
 [   35.257440] [<c026eec8>] (sys_write+0x4c/0x78) from [<c0107000>] (ret_fast_syscall+0x0/0x30)
-</p>
-<h2>[   35.265998] [ cut here ]</h2>
-<p>[   35.270417] WARNING: at kernel/workqueue.c:3328 workqueue_cpu_down_callback+0x2f4/0x3ec()
+[   35.265998] ------------[ cut here ]------------
+[   35.270417] WARNING: at kernel/workqueue.c:3328 workqueue_cpu_down_callback+0x2f4/0x3ec()
 [   35.278613] [<c010dc4c>] (unwind_backtrace+0x0/0x144) from [<c0a4ef14>] (dump_stack+0x20/0x24)
 [   35.287203] [<c0a4ef14>] (dump_stack+0x20/0x24) from [<c0193bb0>] (warn_slowpath_common+0x58/0x70)
 [   35.296112] [<c0193bb0>] (warn_slowpath_common+0x58/0x70) from [<c0193cc0>] (warn_slowpath_null+0x2c/0x34)
@@ -3758,9 +3755,8 @@ shell@hammerhead:/ $ [   19.910068] asoc: snd-soc-dummy-dai <-> MultiMedia1 mapp
 [   38.327209] [<c02d30c4>] (sysfs_write_file+0x10c/0x18c) from [<c026ed74>] (vfs_write+0xb8/0x148)
 [   38.335979] [<c026ed74>] (vfs_write+0xb8/0x148) from [<c026eec8>] (sys_write+0x4c/0x78)
 [   38.343968] [<c026eec8>] (sys_write+0x4c/0x78) from [<c0107000>] (ret_fast_syscall+0x0/0x30)
-</p>
-<h2>[   38.352418] [ cut here ]</h2>
-<p>[   38.356967] WARNING: at kernel/workqueue.c:3328 workqueue_cpu_down_callback+0x2f4/0x3ec()
+[   38.352418] ------------[ cut here ]------------
+[   38.356967] WARNING: at kernel/workqueue.c:3328 workqueue_cpu_down_callback+0x2f4/0x3ec()
 [   38.365096] [<c010dc4c>] (unwind_backtrace+0x0/0x144) from [<c0a4ef14>] (dump_stack+0x20/0x24)
 [   38.373723] [<c0a4ef14>] (dump_stack+0x20/0x24) from [<c0193bb0>] (warn_slowpath_common+0x58/0x70)
 [   38.382662] [<c0193bb0>] (warn_slowpath_common+0x58/0x70) from [<c0193cc0>] (warn_slowpath_null+0x2c/0x34)
@@ -3895,9 +3891,8 @@ shell@hammerhead:/ $ [   19.910068] asoc: snd-soc-dummy-dai <-> MultiMedia1 mapp
 [   40.493177] [<c026ed74>] (vfs_write+0xb8/0x148) from [<c026eec8>] (sys_write+0x4c/0x78)
 [   40.493201] [<c026eec8>] (sys_write+0x4c/0x78) from [<c0107000>] (ret_fast_syscall+0x0/0x30)
 [   40.690173] objs:
-</p>
-<h2>[   40.690175] </h2>
-<p>[   40.690177] mdss_fb0_retire sw_sync: 169
+[   40.690175] --------------
+[   40.690177] mdss_fb0_retire sw_sync: 169
 [   40.690178]   pt signaled@34.116466: 163
 [   40.690179]   pt signaled@34.133138: 164
 [   40.690181]   pt active: 170
@@ -3982,9 +3977,8 @@ shell@hammerhead:/ $ [   19.910068] asoc: snd-soc-dummy-dai <-> MultiMedia1 mapp
 [   41.045378]   pt signaled@36.891032
 [   41.045387] 
 [   41.045393] fences:
-</p>
-<h2>[   41.045400] </h2>
-<p>[   41.045408] [eb2bc880] kgsl-fence: signaled
+[   41.045400] --------------
+[   41.045408] [eb2bc880] kgsl-fence: signaled
 [   41.086931]   kgsl-timeline_pt signaled@30.777634
 [   41.086945] 
 [   41.086951] [eb2bcd00] com.android.launcher3/com.an:0: signaled
@@ -4192,9 +4186,8 @@ shell@hammerhead:/ $ [   19.910068] asoc: snd-soc-dummy-dai <-> MultiMedia1 mapp
 [   47.461812] kgsl kgsl-3d0: |adreno_ringbuffer_issueibcmds| adreno_context_queue_cmd returned -110
 [   51.839520] fence timeout on [eac24c00] after 10000ms
 [   51.843743] objs:
-</p>
-<h2>[   51.843744] </h2>
-<p>[   51.843745] mdss_fb0_retire sw_sync: 169
+[   51.843744] --------------
+[   51.843745] mdss_fb0_retire sw_sync: 169
 [   51.843747]   pt signaled@34.116466: 163
 [   51.843748]   pt signaled@34.133138: 164
 [   51.843750]   pt active: 170
@@ -4258,9 +4251,8 @@ shell@hammerhead:/ $ [   19.910068] asoc: snd-soc-dummy-dai <-> MultiMedia1 mapp
 [   52.004643] kgsl-timeline kgsl-timeline
 [   52.004645] 
 [   52.004645] fences:
-</p>
-<h2>[   52.004646] </h2>
-<p>[   52.047710] [eb2bc880] kgsl-fence: signaled
+[   52.004646] --------------
+[   52.047710] [eb2bc880] kgsl-fence: signaled
 [   52.047712]   kgsl-timeline_pt signaled@30.777634
 [   52.047713] 
 [   52.047714] [eb2bcd00] com.android.launcher3/com.an:0: signaled
@@ -4360,9 +4352,8 @@ shell@hammerhead:/ $ [   19.910068] asoc: snd-soc-dummy-dai <-> MultiMedia1 mapp
 [   52.413342] mdss_fb_wait_for_fence: mdp-fence: sync_fence_wait failed! ret = ffffffc2
 [   55.419494] fence timeout on [eac24c00] after 3000ms
 [   55.423645] objs:
-</p>
-<h2>[   55.423647] </h2>
-<p>[   55.423648] mdss_fb0_retire sw_sync: 169
+[   55.423647] --------------
+[   55.423648] mdss_fb0_retire sw_sync: 169
 [   55.423649]   pt signaled@34.116466: 163
 [   55.423651]   pt signaled@34.133138: 164
 [   55.423652]   pt active: 170
@@ -4430,9 +4421,8 @@ shell@hammerhead:/ $ [   19.910068] asoc: snd-soc-dummy-dai <-> MultiMedia1 mapp
 [   55.626188]   pt signaled@52.195401
 [   55.626190] 
 [   55.626191] fences:
-</p>
-<h2>[   55.626192] </h2>
-<p>[   55.626193] [eb2bc880] kgsl-fence: signaled
+[   55.626192] --------------
+[   55.626193] [eb2bc880] kgsl-fence: signaled
 [   55.626194]   kgsl-timeline_pt signaled@30.777634
 [   55.626196] 
 [   55.626197] [eb2bcd00] com.android.launcher3/com.an:0: signaled
@@ -4546,9 +4536,8 @@ shell@hammerhead:/ $ [   19.910068] asoc: snd-soc-dummy-dai <-> MultiMedia1 mapp
 [   57.470305] kgsl kgsl-3d0: |adreno_ringbuffer_issueibcmds| adreno_context_queue_cmd returned -110
 [   66.060157] fence timeout on [eac24c00] after 10000ms
 [   66.065623] objs:
-</p>
-<h2>[   66.065631] </h2>
-<p>[   66.065640] mdss_fb0_retire sw_sync: 169
+[   66.065631] --------------
+[   66.065640] mdss_fb0_retire sw_sync: 169
 [   66.065649]   pt signaled@34.116466: 163
 [   66.065659]   pt signaled@34.133138: 164
 [   66.065669]   pt active: 170
@@ -4616,9 +4605,8 @@ shell@hammerhead:/ $ [   19.910068] asoc: snd-soc-dummy-dai <-> MultiMedia1 mapp
 [   66.267814]   pt signaled@52.195401
 [   66.267823] 
 [   66.267829] fences:
-</p>
-<h2>[   66.267836] </h2>
-<p>[   66.267844] [eb2bc880] kgsl-fence: signaled
+[   66.267836] --------------
+[   66.267844] [eb2bc880] kgsl-fence: signaled
 [   66.267854]   kgsl-timeline_pt signaled@30.777634
 [   66.267865] 
 [   66.267871] [eb2bcd00] com.android.launcher3/com.an:0: signaled
@@ -4731,9 +4719,8 @@ shell@hammerhead:/ $ [   19.910068] asoc: snd-soc-dummy-dai <-> MultiMedia1 mapp
 [   66.693753] mdss_fb_wait_for_fence: mdp-fence: sync_fence_wait failed! ret = ffffffc2
 [   69.769877] fence timeout on [ead97480] after 3000ms
 [   69.775371] objs:
-</p>
-<h2>[   69.775380] </h2>
-<p>[   69.775389] mdss_fb0_retire sw_sync: 169
+[   69.775380] --------------
+[   69.775389] mdss_fb0_retire sw_sync: 169
 [   69.775399]   pt signaled@34.116466: 163
 [   69.775409]   pt signaled@34.133138: 164
 [   69.775419]   pt active: 170
@@ -4816,9 +4803,8 @@ shell@hammerhead:/ $ [   19.910068] asoc: snd-soc-dummy-dai <-> MultiMedia1 mapp
 [   70.020808]   pt active
 [   70.020816] 
 [   70.020822] fences:
-</p>
-<h2>[   70.020829] </h2>
-<p>[   70.020837] [eb2bc880] kgsl-fence: signaled
+[   70.020829] --------------
+[   70.020837] [eb2bc880] kgsl-fence: signaled
 [   70.020847]   kgsl-timeline_pt signaled@30.777634
 [   70.020858] 
 [   70.020863] [eb2bcd00] com.android.launcher3/com.an:0: signaled
@@ -4962,9 +4948,8 @@ shell@hammerhead:/ $ [   19.910068] asoc: snd-soc-dummy-dai <-> MultiMedia1 mapp
 [   70.553085] mdss_fb_wait_for_fence: mdp-fence: sync_fence_wait timed out! Waiting 10 more seconds
 [   80.559800] fence timeout on [ead97480] after 10000ms
 [   80.564101] objs:
-</p>
-<h2>[   80.564103] </h2>
-<p>[   80.564104] mdss_fb0_retire sw_sync: 169
+[   80.564103] --------------
+[   80.564104] mdss_fb0_retire sw_sync: 169
 [   80.564105]   pt signaled@34.116466: 163
 [   80.564107]   pt signaled@34.133138: 164
 [   80.564108]   pt active: 170
@@ -5047,9 +5032,8 @@ shell@hammerhead:/ $ [   19.910068] asoc: snd-soc-dummy-dai <-> MultiMedia1 mapp
 [   80.809655]   pt active
 [   80.809656] 
 [   80.809657] fences:
-</p>
-<h2>[   80.809658] </h2>
-<p>[   80.809659] [eb2bc880] kgsl-fence: signaled
+[   80.809658] --------------
+[   80.809659] [eb2bc880] kgsl-fence: signaled
 [   80.809661]   kgsl-timeline_pt signaled@30.777634
 [   80.809662] 
 [   80.809663] [eb2bcd00] com.android.launcher3/com.an:0: signaled
@@ -5193,9 +5177,8 @@ shell@hammerhead:/ $ [   19.910068] asoc: snd-soc-dummy-dai <-> MultiMedia1 mapp
 [   81.342098] mdss_fb_wait_for_fence: mdp-fence: sync_fence_wait failed! ret = ffffffc2
 [   84.350188] fence timeout on [ead97280] after 3000ms
 [   84.355721] objs:
-</p>
-<h2>[   84.355730] </h2>
-<p>[   84.355739] mdss_fb0_retire sw_sync: 169
+[   84.355730] --------------
+[   84.355739] mdss_fb0_retire sw_sync: 169
 [   84.355748]   pt signaled@34.116466: 163
 [   84.355759]   pt signaled@34.133138: 164
 [   84.355769]   pt active: 170
@@ -5281,9 +5264,8 @@ shell@hammerhead:/ $ [   19.910068] asoc: snd-soc-dummy-dai <-> MultiMedia1 mapp
 [   84.602402]   pt active
 [   84.602409] 
 [   84.602415] fences:
-</p>
-<h2>[   84.602422] </h2>
-<p>[   84.602430] [eb2bc880] kgsl-fence: signaled
+[   84.602422] --------------
+[   84.602430] [eb2bc880] kgsl-fence: signaled
 [   84.602440]   kgsl-timeline_pt signaled@30.777634
 [   84.602451] 
 [   84.602457] [eb2bcd00] com.android.launcher3/com.an:0: signaled
@@ -5434,9 +5416,8 @@ shell@hammerhead:/ $ [   19.910068] asoc: snd-soc-dummy-dai <-> MultiMedia1 mapp
 [   85.165549] mdss_fb_wait_for_fence: mdp-fence: sync_fence_wait timed out! Waiting 10 more seconds
 [   95.169589] fence timeout on [ead97280] after 10000ms
 [   95.173835] objs:
-</p>
-<h2>[   95.173836] </h2>
-<p>[   95.173838] mdss_fb0_retire sw_sync: 169
+[   95.173836] --------------
+[   95.173838] mdss_fb0_retire sw_sync: 169
 [   95.173839]   pt signaled@34.116466: 163
 [   95.173840]   pt signaled@34.133138: 164
 [   95.173842]   pt active: 170
@@ -5522,9 +5503,8 @@ shell@hammerhead:/ $ [   19.910068] asoc: snd-soc-dummy-dai <-> MultiMedia1 mapp
 [   95.420813]   pt active
 [   95.420814] 
 [   95.420815] fences:
-</p>
-<h2>[   95.420816] </h2>
-<p>[   95.420817] [eb2bc880] kgsl-fence: signaled
+[   95.420816] --------------
+[   95.420817] [eb2bc880] kgsl-fence: signaled
 [   95.420818]   kgsl-timeline_pt signaled@30.777634
 [   95.420820] 
 [   95.420821] [eb2bcd00] com.android.launcher3/com.an:0: signaled
@@ -5729,9 +5709,8 @@ shell@hammerhead:/ $ [   19.910068] asoc: snd-soc-dummy-dai <-> MultiMedia1 mapp
 [  104.676844] [<c026eec8>] (sys_write+0x4c/0x78) from [<c0107000>] (ret_fast_syscall+0x0/0x30)
 [  104.685402] fence timeout on [ead97280] after 3000ms
 [  104.690733] objs:
-</p>
-<h2>[  104.690741] </h2>
-<p>[  104.690750] mdss_fb0_retire sw_sync: 169
+[  104.690741] --------------
+[  104.690750] mdss_fb0_retire sw_sync: 169
 [  104.690760]   pt signaled@34.116466: 163
 [  104.690769]   pt signaled@34.133138: 164
 [  104.690779]   pt active: 170
@@ -5813,9 +5792,8 @@ shell@hammerhead:/ $ [   19.910068] asoc: snd-soc-dummy-dai <-> MultiMedia1 mapp
 [  105.050569]   pt active
 [  105.050570] 
 [  105.050571] fences:
-</p>
-<h2>[  105.050572] </h2>
-<p>[  105.050573] [eb2bc880] kgsl-fence: signaled
+[  105.050572] --------------
+[  105.050573] [eb2bc880] kgsl-fence: signaled
 [  105.050575]   kgsl-timeline_pt signaled@30.777634
 [  105.050577] 
 [  105.050578] [eac24080] kgsl-fence: signaled
@@ -6092,7 +6070,7 @@ shell@hammerhead:/ $ [   19.910068] asoc: snd-soc-dummy-dai <-> MultiMedia1 mapp
 [  106.912098] [<c026ed74>] (vfs_write+0xb8/0x148) from [<c026eec8>] (sys_write+0x4c/0x78)
 [  106.920084] [<c026eec8>] (sys_write+0x4c/0x78) from [<c0107000>] (ret_fast_syscall+0x0/0x30)
 
-</p>
+</pre>
 <h2> Configuration options </h2>
 <p>EARLY_PRINTK enabled
 PREEMPT_RT_BASE enabled
