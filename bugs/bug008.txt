@@ -3091,5 +3091,5 @@ expect the mutex to be locked unless they are called from an interrupt. As the
 interrupt is now threaded, the mutex should be locked always.
 
 --- Solution -------------------------------------------------------------------
-Add mutex_lock a3xx_irq_handler function in drivers/gpu/msm/adreno_a3xx.c file
-when in PREEMPT_RT_FULL mode
+Add mutex_lock at a3xx_irq_handler and a3xx_irq_pending functions in
+drivers/gpu/msm/adreno_a3xx.c file when in PREEMPT_RT_FULL mode.
